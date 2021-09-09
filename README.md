@@ -1,5 +1,3 @@
-_Pseudo código para realizar este ejercicio_
-
 #Desarrollar una aplicación web de búsqueda de series de TV que permite marcar y desmarcar las series favotitas y guardarlas en local storage. #
 
 1.Estructura básica: Consta de dos partes:
