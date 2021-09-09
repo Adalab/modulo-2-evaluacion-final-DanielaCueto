@@ -1,0 +1,1 @@
+{"version":3,"sources":["layout/_header.scss"],"names":[],"mappings":"AAAA;EACE,aAAa;EACb,6BAA6B;EAC7B,mBAAmB,EAAA","file":"main.css","sourcesContent":[".page__header {\n  display: flex;\n  justify-content: space-evenly;\n  margin-bottom: 3rem;\n}\n"]}
