@@ -3,7 +3,7 @@
 1.Estructura básica: Consta de dos partes:
 [x]1.1.- Un campo de texto y un botón para buscar series por su título.
 
-[]1.2.- Un listado de resultados de búsqueda donde aparece el cartel de la serie y el título.
+[x]1.2.- Un listado de resultados de búsqueda donde aparece el cartel de la serie y el título.
 
 2.Búsqueda:
 []2.1.-Click sobre el botón de Buscar(ev) y la aplicación debe conectarse al API facilitado.
