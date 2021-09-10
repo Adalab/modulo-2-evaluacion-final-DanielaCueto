@@ -1,1 +1,52 @@
+body {
+  background: hsla(191, 88%, 81%, 1);
 
+  background: linear-gradient(
+    90deg,
+    hsla(191, 88%, 81%, 1) 0%,
+    hsla(260, 72%, 82%, 1) 100%
+  );
+}
+.page {
+  box-sizing: border-box;
+  padding: 10px;
+  width: 100vw;
+  &__subtitle {
+    margin-bottom: 10px;
+  }
+}
+
+.page__formulary {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 50%;
+}
+
+.formulary {
+  display: flex;
+  &__label {
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  &__textbox {
+    width: 200px;
+    height: 20px;
+    margin: 10px 0;
+  }
+  &__button {
+    width: 100px;
+    height: 30px;
+    background-color: black;
+    color: white;
+    margin-bottom: 10px;
+    &:hover {
+      background-color: pink;
+      color: black;
+    }
+
+    border-radius: 20px;
+    text-shadow: none;
+  }
+}

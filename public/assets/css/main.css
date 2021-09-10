@@ -1,6 +1,63 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+  margin: 0;
+  padding: 0; }
+
+button {
+  border: none; }
+
 .page__header {
   display: flex;
   justify-content: space-evenly;
-  margin-bottom: 3rem; }
+  margin-bottom: 100px; }
+
+body {
+  background: #a4eaf9;
+  background: linear-gradient(90deg, #a4eaf9 0%, #c6b0f2 100%); }
+
+.page {
+  box-sizing: border-box;
+  padding: 10px;
+  width: 100vw; }
+  .page__subtitle {
+    margin-bottom: 10px; }
+
+.page__formulary {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 50%; }
+
+.formulary {
+  display: flex; }
+  .formulary__label {
+    font-weight: bold;
+    font-size: 20px; }
+  .formulary__textbox {
+    width: 200px;
+    height: 20px;
+    margin: 10px 0; }
+  .formulary__button {
+    width: 100px;
+    height: 30px;
+    background-color: black;
+    color: white;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    text-shadow: none; }
+    .formulary__button:hover {
+      background-color: pink;
+      color: black; }
 
 /*# sourceMappingURL=main.css.map */
