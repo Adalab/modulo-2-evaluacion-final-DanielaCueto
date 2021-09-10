@@ -19,11 +19,11 @@
 3.Favoritos:
 Indicar cuales son los favoritos. Al hacer click sobre una serie:
 
-[]3.1.- El color de fondo y de fuente se intercambian para indicar que es una serie favorita.
+[x]3.1.- El color de fondo y de fuente se intercambian para indicar que es una serie favorita.
 
-[] 3.2.- Mostrar esos favoritos en una lista en la parte izquierda de la pantalla, debajo del formulario de búsqueda. (para esto crear una variable o constante tipo array en js para almacenar las series favoritas).
+[x] 3.2.- Mostrar esos favoritos en una lista en la parte izquierda de la pantalla, debajo del formulario de búsqueda. (para esto crear una variable o constante tipo array en js para almacenar las series favoritas).
 
-[]3.3.- Deben mantenerse en la página aunque la usuaria haga otra búsqueda.
+[x]3.3.- Deben mantenerse en la página aunque la usuaria haga otra búsqueda.
 
 4.Almacenamiento local:
 []4.1.- Hay que almacenar el listado de favoritos en el localStorage. De esta forma, al recargar la página el listado de favoritos se debe mostrarse.

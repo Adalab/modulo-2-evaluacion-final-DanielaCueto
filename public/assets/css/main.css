@@ -18,6 +18,7 @@ button {
   border: none; }
 
 .page__header {
+  grid-column: 1 / span 2;
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 100px; }
@@ -29,11 +30,22 @@ body {
 .page {
   box-sizing: border-box;
   padding: 10px;
-  width: 100vw; }
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr 2fr; }
   .page__subtitle {
+    margin-bottom: 10px; }
+  .page__favList {
+    padding: 10px;
+    border-right: black 1px solid; }
+  .page__list {
+    padding: 10px; }
+  .page__listheader {
+    text-align: center;
     margin-bottom: 10px; }
 
 .page__formulary {
+  grid-column: 1 / span 2;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -59,5 +71,23 @@ body {
     .formulary__button:hover {
       background-color: pink;
       color: black; }
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif; }
+  .list__item {
+    padding: 10px;
+    margin: 10px;
+    background-color: white; }
+  .list__title {
+    margin-bottom: 5px; }
+
+.selectedCard {
+  background-color: black;
+  color: white; }
 
 /*# sourceMappingURL=main.css.map */
