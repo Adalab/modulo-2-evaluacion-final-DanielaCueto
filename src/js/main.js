@@ -1,23 +1,18 @@
 "use strict";
 
-//Variables
+//Const
 const button = document.querySelector(".js-button");
-//console.log(button);
 const showList = document.querySelector(".js-list");
-//console.log(showList);
 const userValue = document.querySelector(".js-input");
 
-//console.log(userValue);
-
 //arrays (vacíos o no)
+let html = [];
 
 //Funciones
 function handleButton(ev) {
   ev.preventDefault();
   queryResults();
 }
-//Eventos
-button.addEventListener("click", handleButton);
 
 //Fetch
 function queryResults() {
@@ -27,27 +22,27 @@ function queryResults() {
       return response.json();
     })
     .then((results) => {
-      painResults(results);
+      paintResults(results);
     });
 }
 
-function painResults(results) {
-  let html = "";
+function paintResults(results) {
   for (let result of results) {
     const show = result.show;
-    console.log(show);
     const name = show.name;
-    //console.log(name);
     const image = show.image;
+    const id = show.id;
     let imageUrl = "";
     if (image) {
       imageUrl = image.medium;
     } else {
       imageUrl = "https://via.placeholder.com/210x295/ffffff/666666/?text=TV";
     }
-    //console.log(`${name} - ${image}`);
-    html += `<li>${name} <img src="${imageUrl}">- </li>`;
+    html += `<li>${name} <img id="{id}" src="${imageUrl}"></li>`;
   }
 
   showList.innerHTML = html;
 }
+
+//Eventos
+button.addEventListener("click", handleButton);
