@@ -6,15 +6,15 @@
 [x]1.2.- Un listado de resultados de búsqueda donde aparece el cartel de la serie y el título.
 
 2.Búsqueda:
-[]2.1.-Click sobre el botón de Buscar(ev) y la aplicación debe conectarse al API facilitado.
+[x]2.1.-Click sobre el botón de Buscar(ev) y la aplicación debe conectarse al API facilitado.
 
-[]2.2.-Recoger el texto (value) introducido por la usuaria del campo de búsqueda.
+[x]2.2.-Recoger el texto (value) introducido por la usuaria del campo de búsqueda.
 
-[]2.3.- Por cada show contenido en el resultado de la búsqueda hay que pintar una tarjeta donde mostramos una imagen de la serie y el título.
+[x]2.3.- Por cada show contenido en el resultado de la búsqueda hay que pintar una tarjeta donde mostramos una imagen de la serie y el título.
 
-[]2.4.- Algunas series devueltas por el API no tienen imagen. Hay que mostrar una imagen de relleno (de placeholder.com).
+[x]2.4.- Algunas series devueltas por el API no tienen imagen. Hay que mostrar una imagen de relleno (de placeholder.com).
 
-[]2.5.- Pintar la información en la página (ya sea con inner.HTML o manipulando el DOM de forma avanzada).
+[x]2.5.- Pintar la información en la página (ya sea con inner.HTML o manipulando el DOM de forma avanzada).
 
 3.Favoritos:
 Indicar cuales son los favoritos. Al hacer click sobre una serie:
