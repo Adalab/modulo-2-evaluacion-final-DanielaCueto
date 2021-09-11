@@ -9,6 +9,7 @@ body {
 }
 .page {
   box-sizing: border-box;
+  font-family: "Turrent road", Arial, Helvetica, sans-serif;
   padding: 10px;
   width: 100vw;
   display: grid;
@@ -58,8 +59,8 @@ body {
     color: white;
     margin-bottom: 10px;
     &:hover {
-      background-color: pink;
-      color: black;
+      background-color: hsla(260, 72%, 82%, 1);
+      color: white;
     }
 
     border-radius: 20px;

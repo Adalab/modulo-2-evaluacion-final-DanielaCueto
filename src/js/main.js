@@ -7,8 +7,13 @@ const userValue = document.querySelector(".js-input");
 const favlist = document.querySelector(".js-favlist");
 
 //arrays (vacíos o no)
-let favShow = []; //array para los favoritos
 
+let favShow = []; //array para los favoritos
+const savedFavShow = localStorage.getItem("favShow");
+if (savedFavShow) {
+  favShow = JSON.parse(savedFavShow);
+  paintFavorites();
+}
 let shows = []; //array para resultados
 
 //Funciones
@@ -42,7 +47,15 @@ function paintResults() {
     } else {
       imageUrl = "https://via.placeholder.com/210x295/ffffff/666666/?text=TV";
     }
-    html += `<li class="card list__item" id="${id}">
+    let liClass = "card list__item";
+    const favoriteShowFound = favShow.findIndex((favorite) => {
+      return favorite.show.id === id;
+    });
+    //console.log(favoriteShowFound); crear una función?
+    if (favoriteShowFound !== -1) {
+      liClass += " selectedCard";
+    }
+    html += `<li class="${liClass}" id="${id}">
     <h4 class="list__title">${name}</h4>
      <img  src="${imageUrl}">
      </li>`;
@@ -77,6 +90,8 @@ function handleClickedShow(ev) {
   //console.log(favShow);
   paintFavorites();
   clickedShowLi.classList.toggle("selectedCard");
+
+  localStorage.setItem("favShow", JSON.stringify(favShow));
 }
 
 function paintFavorites() {
