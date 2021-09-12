@@ -90,12 +90,7 @@ function handleClickedShow(ev, showArray) {
     return show.id === clickedShowId; //true or false
   });
   //Para meter en el array el show clickado
-  const addedToFavorite = updateFavoriteList(clickedShowObject);
-  if (addedToFavorite) {
-    clickedShowLi.classList.add("selectedCard");
-  } else {
-    clickedShowLi.classList.remove("selectedCard");
-  }
+  updateFavoriteList(clickedShowObject);
 
   //console.log(favShow);
   paintCards(favShow, favList);
@@ -111,10 +106,8 @@ function updateFavoriteList(clickedShowObject) {
 
   if (favoriteShowFound === -1) {
     favShow.push(clickedShowObject);
-    return true;
   } else {
     favShow.splice(favoriteShowFound, 1);
-    return false;
   }
 }
 
