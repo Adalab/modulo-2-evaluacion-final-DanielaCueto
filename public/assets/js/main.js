@@ -6,15 +6,16 @@ const showList = document.querySelector(".js-list");
 const userValue = document.querySelector(".js-input");
 const favlist = document.querySelector(".js-favlist");
 
-//arrays (vacíos o no)
-
-let favShow = []; //array para los favoritos
-const savedFavShow = localStorage.getItem("favShow");
-if (savedFavShow) {
-  favShow = JSON.parse(savedFavShow);
-  paintFavorites();
-}
 let shows = []; //array para resultados
+let favShow = []; //array para los favoritos
+function loadFavoriteShows() {
+  const savedFavShow = localStorage.getItem("favShow");
+  if (savedFavShow) {
+    favShow = JSON.parse(savedFavShow);
+    paintFavorites();
+  }
+}
+loadFavoriteShows();
 
 //Funciones
 function handleButton(ev) {
@@ -36,32 +37,39 @@ function queryResults() {
 function paintResults() {
   let html = "";
   for (let result of shows) {
-    const show = result.show;
-    const name = show.name;
-    const image = show.image;
-    const id = show.id;
+    html += getShowHtml(result);
+  }
+  showList.innerHTML = html;
+  addHandlerForAllCard();
+}
+// Devuelve un html que me permite dibujar un resultado
+function getShowHtml(result) {
+  const show = result.show;
+  const name = show.name;
+  const image = show.image;
+  const id = show.id;
 
-    let imageUrl = "";
-    if (image) {
-      imageUrl = image.medium;
-    } else {
-      imageUrl = "https://via.placeholder.com/210x295/ffffff/666666/?text=TV";
-    }
-    let liClass = "card list__item";
-    const favoriteShowFound = favShow.findIndex((favorite) => {
-      return favorite.show.id === id;
-    });
-    //console.log(favoriteShowFound); crear una función?
-    if (favoriteShowFound !== -1) {
-      liClass += " selectedCard";
-    }
-    html += `<li class="${liClass}" id="${id}">
+  let imageUrl = "";
+  if (image) {
+    imageUrl = image.medium;
+  } else {
+    imageUrl = "https://via.placeholder.com/210x295/ffffff/666666/?text=TV";
+  }
+  let liClass = "card list__item";
+  const favoriteShowFound = favShow.findIndex((favorite) => {
+    return favorite.show.id === id;
+  });
+  //console.log(favoriteShowFound); crear una función?
+  if (favoriteShowFound !== -1) {
+    liClass += " selectedCard";
+  }
+  return `<li class="${liClass}" id="${id}">
     <h4 class="list__title">${name}</h4>
      <img  src="${imageUrl}">
      </li>`;
-  }
-  showList.innerHTML = html;
-
+}
+// Añade un evento a cada carta dibujada en la pantalla
+function addHandlerForAllCard() {
   const allShows = document.querySelectorAll(".card");
   for (let card of allShows) {
     card.addEventListener("click", handleClickedShow);
@@ -78,20 +86,25 @@ function handleClickedShow(ev) {
   });
 
   //Para meter en el array el show clickado
-  const favoriteShowFound = favShow.findIndex((favorite) => {
-    return favorite.show.id === clickedShowId;
-  });
-  //console.log(favoriteShowFound); crear una función?
-  if (favoriteShowFound === -1) {
-    favShow.push(clickedShowObject);
-  } else {
-    favShow.splice(favoriteShowFound, 1);
-  }
+  updateFavoriteList();
+
   //console.log(favShow);
   paintFavorites();
   clickedShowLi.classList.toggle("selectedCard");
 
   localStorage.setItem("favShow", JSON.stringify(favShow));
+}
+//Función que añade o quita el favorito comprobando antes si esta
+function updateFavoriteList(clickedShowId) {
+  const favoriteShowFound = favShow.findIndex((favorite) => {
+    return favorite.show.id === clickedShowId;
+  });
+
+  if (favoriteShowFound === -1) {
+    favShow.push(clickedShowObject);
+  } else {
+    favShow.splice(favoriteShowFound, 1);
+  }
 }
 
 function paintFavorites() {
