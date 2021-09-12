@@ -1,3 +1,11 @@
+<h1>Module 2. Final Project</h1>
+
+<p>For this module, we learn how to implement Java Script in the web page in order to have an interactive application.</p>
+
+<h3>The Project</h3>
+<p>Consist in create an app where people can search for series and selected as favorite whether they want to watch it later or they liked. 
+</p>
+
 <h1 align="center">Hi 👋, I'm Daniela Salazar Cueto</h1>
 <h3 align="center">A passionate jr frontend developer from Bolivia. Currently in Lisbon</h3>
 
