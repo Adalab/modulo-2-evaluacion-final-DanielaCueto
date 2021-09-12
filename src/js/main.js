@@ -1,27 +1,13 @@
 "use strict";
 
-//Const
+//Variables y constantes
 const button = document.querySelector(".js-button");
 const showList = document.querySelector(".js-list");
 const userValue = document.querySelector(".js-input");
-const favlist = document.querySelector(".js-favlist");
+const favList = document.querySelector(".js-favlist");
 
 let shows = []; //array para resultados
 let favShow = []; //array para los favoritos
-function loadFavoriteShows() {
-  const savedFavShow = localStorage.getItem("favShow");
-  if (savedFavShow) {
-    favShow = JSON.parse(savedFavShow);
-    paintFavorites();
-  }
-}
-loadFavoriteShows();
-
-//Funciones
-function handleButton(ev) {
-  ev.preventDefault();
-  queryResults();
-}
 
 //Fetch
 function queryResults() {
@@ -29,22 +15,40 @@ function queryResults() {
   fetch(`//api.tvmaze.com/search/shows?q=${userSearch}`)
     .then((response) => response.json())
     .then((results) => {
-      shows = results;
-      paintResults();
+      shows = [];
+      for (let result of results) {
+        const show = result.show;
+        shows.push(show);
+      }
+      paintCards(shows, showList);
     });
 }
-//Función para pintar cada result obtenido.
-function paintResults() {
-  let html = "";
-  for (let result of shows) {
-    html += getShowHtml(result);
+
+//Funciones
+function handleButton(ev) {
+  ev.preventDefault();
+  queryResults();
+}
+
+function loadFavoriteShows() {
+  const savedFavShow = localStorage.getItem("favShow");
+  if (savedFavShow) {
+    favShow = JSON.parse(savedFavShow);
+    paintCards(favShow, favList);
   }
-  showList.innerHTML = html;
-  addHandlerForAllCard();
+}
+
+//Función para pintar cada result obtenido.
+function paintCards(showArray, showListHtml) {
+  let html = "";
+  for (let show of showArray) {
+    html += getShowHtml(show);
+  }
+  showListHtml.innerHTML = html;
+  addHandlerForCardsInList(showArray, showListHtml);
 }
 // Devuelve un html que me permite dibujar un resultado
-function getShowHtml(result) {
-  const show = result.show;
+function getShowHtml(show) {
   const name = show.name;
   const image = show.image;
   const id = show.id;
@@ -57,7 +61,7 @@ function getShowHtml(result) {
   }
   let liClass = "card list__item";
   const favoriteShowFound = favShow.findIndex((favorite) => {
-    return favorite.show.id === id;
+    return favorite.id === id;
   });
   //console.log(favoriteShowFound); crear una función?
   if (favoriteShowFound !== -1) {
@@ -69,71 +73,51 @@ function getShowHtml(result) {
      </li>`;
 }
 // Añade un evento a cada carta dibujada en la pantalla
-function addHandlerForAllCard() {
-  const allShows = document.querySelectorAll(".card");
-  for (let card of allShows) {
-    card.addEventListener("click", handleClickedShow);
+function addHandlerForCardsInList(showArray, showListHtml) {
+  const allShowsHtml = showListHtml.querySelectorAll(".card");
+  for (let card of allShowsHtml) {
+    card.addEventListener("click", (ev) => {
+      handleClickedShow(ev, showArray);
+    });
   }
 }
 
 //Función del evento click para cada uno de los shows.
-function handleClickedShow(ev) {
+function handleClickedShow(ev, showArray) {
   const clickedShowLi = ev.currentTarget;
   const clickedShowId = parseInt(clickedShowLi.id);
-  //onsole.log(clickedShowId);
-  const clickedShowObject = shows.find((serie) => {
-    return serie.show.id === clickedShowId;
+  const clickedShowObject = showArray.find((show) => {
+    return show.id === clickedShowId; //true or false
   });
-
   //Para meter en el array el show clickado
-  updateFavoriteList();
+  const addedToFavorite = updateFavoriteList(clickedShowObject);
+  if (addedToFavorite) {
+    clickedShowLi.classList.add("selectedCard");
+  } else {
+    clickedShowLi.classList.remove("selectedCard");
+  }
 
   //console.log(favShow);
-  paintFavorites();
-  clickedShowLi.classList.toggle("selectedCard");
+  paintCards(favShow, favList);
+  paintCards(shows, showList);
 
   localStorage.setItem("favShow", JSON.stringify(favShow));
 }
 //Función que añade o quita el favorito comprobando antes si esta
-function updateFavoriteList(clickedShowId) {
+function updateFavoriteList(clickedShowObject) {
   const favoriteShowFound = favShow.findIndex((favorite) => {
-    return favorite.show.id === clickedShowId;
+    return favorite.id === clickedShowObject.id;
   });
 
   if (favoriteShowFound === -1) {
     favShow.push(clickedShowObject);
+    return true;
   } else {
     favShow.splice(favoriteShowFound, 1);
-  }
-}
-
-function paintFavorites() {
-  let html = "";
-  for (let favOne of favShow) {
-    const show = favOne.show;
-    const name = show.name;
-    const image = show.image;
-    const id = show.id;
-
-    let imageUrl = "";
-    if (image) {
-      imageUrl = image.medium;
-    } else {
-      imageUrl = "https://via.placeholder.com/210x295/ffffff/666666/?text=TV";
-    }
-    html += `<li class="card list__item" id="${id}">
-    <h4 class="list__title">${name}</h4>
-     <img  src="${imageUrl}">
-     </li>`;
-  }
-  favlist.innerHTML = html;
-
-  const allShows = document.querySelectorAll(".card");
-  for (let card of allShows) {
-    card.addEventListener("click", handleClickedShow);
+    return false;
   }
 }
 
 //Eventos
-
+loadFavoriteShows();
 button.addEventListener("click", handleButton);
