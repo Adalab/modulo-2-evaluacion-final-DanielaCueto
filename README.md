@@ -1,29 +1,24 @@
-#Desarrollar una aplicación web de búsqueda de series de TV que permite marcar y desmarcar las series favotitas y guardarlas en local storage. #
+<h1>Module 2. Final Project</h1>
 
-1.Estructura básica: Consta de dos partes:
-[x]1.1.- Un campo de texto y un botón para buscar series por su título.
+<p>For this module, we learn how to implement Java Script in the web page in order to have an interactive application.</p>
 
-[]1.2.- Un listado de resultados de búsqueda donde aparece el cartel de la serie y el título.
+<h3>The Project</h3>
+<p>Consist in create an app where people can search for series and selected as favorite whether they want to watch it later or they liked. 
+</p>
 
-2.Búsqueda:
-[]2.1.-Click sobre el botón de Buscar(ev) y la aplicación debe conectarse al API facilitado.
+<h1 align="center">Hi 👋, I'm Daniela Salazar Cueto</h1>
+<h3 align="center">A passionate jr frontend developer from Bolivia. Currently in Lisbon</h3>
 
-[]2.2.-Recoger el texto (value) introducido por la usuaria del campo de búsqueda.
+- 🌱 I’m currently learning **HTML, CSS, GIT, GULP, JS**
 
-[]2.3.- Por cada show contenido en el resultado de la búsqueda hay que pintar una tarjeta donde mostramos una imagen de la serie y el título.
+- 📫 How to reach me **danisalazarcueto7@gmail.com**
 
-[]2.4.- Algunas series devueltas por el API no tienen imagen. Hay que mostrar una imagen de relleno (de placeholder.com).
+<h3 align="left">Connect with me:</h3>
+<p align="left">
+<a href="https://twitter.com/danicueton" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="danicueton" height="30" width="40" /></a>
+<a href="https://linkedin.com/in/daniela salazar cueto" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="daniela salazar cueto" height="30" width="40" /></a>
+<a href="https://instagram.com/danielacueto07" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="danielacueto07" height="30" width="40" /></a>
+</p>
 
-[]2.5.- Pintar la información en la página (ya sea con inner.HTML o manipulando el DOM de forma avanzada).
-
-3.Favoritos:
-Indicar cuales son los favoritos. Al hacer click sobre una serie:
-
-[]3.1.- El color de fondo y de fuente se intercambian para indicar que es una serie favorita.
-
-[] 3.2.- Mostrar esos favoritos en una lista en la parte izquierda de la pantalla, debajo del formulario de búsqueda. (para esto crear una variable o constante tipo array en js para almacenar las series favoritas).
-
-[]3.3.- Deben mantenerse en la página aunque la usuaria haga otra búsqueda.
-
-4.Almacenamiento local:
-[]4.1.- Hay que almacenar el listado de favoritos en el localStorage. De esta forma, al recargar la página el listado de favoritos se debe mostrarse.
+<h3 align="left">Languages and Tools:</h3>
+<p align="left"> <a href="https://www.w3schools.com/css/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://gulpjs.com" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/gulp/gulp-plain.svg" alt="gulp" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://sass-lang.com" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg" alt="sass" width="40" height="40"/> </a> </p>

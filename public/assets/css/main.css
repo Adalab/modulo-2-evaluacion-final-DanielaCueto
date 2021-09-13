@@ -1,6 +1,100 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+  margin: 0;
+  padding: 0; }
+
+button {
+  border: none; }
+
 .page__header {
+  grid-column: 1 / span 2;
   display: flex;
   justify-content: space-evenly;
-  margin-bottom: 3rem; }
+  margin-bottom: 100px; }
+
+body {
+  background: #a4eaf9;
+  background: linear-gradient(90deg, #a4eaf9 0%, #c6b0f2 100%); }
+
+.page {
+  box-sizing: border-box;
+  font-family: "Turrent road", Arial, Helvetica, sans-serif;
+  padding: 10px;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr 2fr; }
+  .page__subtitle {
+    margin-bottom: 10px; }
+  .page__favList {
+    padding: 10px;
+    border-right: black 1px solid; }
+  .page__list {
+    padding: 10px; }
+  .page__listheader {
+    text-align: center;
+    margin-bottom: 10px; }
+
+.page__formulary {
+  grid-column: 1 / span 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 50%; }
+
+.formulary {
+  display: flex; }
+  .formulary__label {
+    font-weight: bold;
+    font-size: 20px; }
+  .formulary__textbox {
+    width: 200px;
+    height: 20px;
+    margin: 10px 0; }
+  .formulary__button {
+    width: 100px;
+    height: 30px;
+    background-color: black;
+    color: white;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    text-shadow: none; }
+    .formulary__button:hover {
+      background-color: #c6b0f2;
+      color: white; }
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif; }
+  .list__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    max-width: 250px;
+    padding: 10px;
+    margin: 10px;
+    background-color: white; }
+  .list__title {
+    margin-bottom: 5px;
+    font-family: "Turret Road", Arial, Helvetica, sans-serif; }
+
+.selectedCard {
+  background-color: black;
+  color: white; }
 
 /*# sourceMappingURL=main.css.map */

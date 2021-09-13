@@ -3,13 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Buscador de Series</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Turret+Road:wght@700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./assets/css/main.css" />
-    <link rel="icon" href="./assets/images/favicon.png" />
+    <link rel="icon" href="./assets/images/favicon-32x32.png" />
+    <title>FAKEBO</title>
   </head>
 
   <body>
@@ -18,26 +20,29 @@
         <h1>Buscador de series</h1>
       </header>
 
-      <h3>Introduce aquí el nombre de la serie</h3>
-      <form action="">
-        <label for="getInfo"></label>
+      <form class="page__formulary formulary" action="">
+        <label for="textinput" class="formulary__label"
+          >Introduce aquí el nombre de la serie:</label
+        >
         <input
           type="text"
-          name="getInfo"
-          id="input"
-          class="textBox js-input"
+          name="textInput"
+          id="textinput"
+          class="formulary__textbox js-input"
           placeholder="Ej: Gossip Girl"
         />
-        <button class="button js-button">Buscar</button>
+        <button class="formulary__button js-button">Buscar</button>
       </form>
 
-      <ul class="list js-list">
-        <li class="itemList js-item"></li>
-        <li class="itemList js-item"></li>
-        <li class="itemList js-item"></li>
-        <li class="itemList js-item"></li>
-        <li class="itemList js-item"></li>
-      </ul>
+      <div class="page__favList">
+        <h2 class="page__listheader">Lista de favoritos</h2>
+        <ul class="list js-favlist"></ul>
+      </div>
+
+      <div class="page__list">
+        <h2 class="page__listheader">Resultados de búsqueda</h2>
+        <ul class="list js-list"></ul>
+      </div>
 
     </div>
     <script src="./assets/js/main.js"></script>

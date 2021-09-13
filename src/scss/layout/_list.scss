@@ -1,0 +1,28 @@
+.list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    max-width: 250px;
+    padding: 10px;
+    margin: 10px;
+    background-color: white;
+  }
+  &__title {
+    margin-bottom: 5px;
+    font-family: "Turret Road", Arial, Helvetica, sans-serif;
+  }
+}
+
+.selectedCard {
+  background-color: black;
+  color: white;
+}
