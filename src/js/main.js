@@ -59,11 +59,12 @@ function getShowHtml(show) {
   } else {
     imageUrl = "https://via.placeholder.com/210x295/ffffff/666666/?text=TV";
   }
+
   let liClass = "card list__item";
   const favoriteShowFound = favShow.findIndex((favorite) => {
     return favorite.id === id;
   });
-  //console.log(favoriteShowFound); crear una función?
+
   if (favoriteShowFound !== -1) {
     liClass += " selectedCard";
   }
