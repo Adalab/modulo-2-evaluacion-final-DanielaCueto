@@ -11,6 +11,7 @@ const button = document.querySelector(".js-button");
 const showList = document.querySelector(".js-list");
 const userValue = document.querySelector(".js-input");
 const favList = document.querySelector(".js-favlist");
+const btnReset = document.querySelector(".js-resetbtn");
 //Arrays creados vacíos para ir rellenando con los shows
 let shows = []; //array para resultados
 let favShow = []; //array para los favoritos
@@ -122,7 +123,15 @@ function updateFavoriteList(clickedShowObject) {
     favShow.splice(favoriteShowFound, 1);
   }
 }
+function eraseBtn(ev) {
+  ev.preventDefault();
+  favShow = [];
+  paintCards(favShow, favList);
+
+  localStorage.removeItem("favShow");
+}
 
 //Eventos
 loadFavoriteShows();
 button.addEventListener("click", handleButton);
+btnReset.addEventListener("click", eraseBtn);

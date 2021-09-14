@@ -10,7 +10,7 @@ body {
 .page {
   box-sizing: border-box;
   font-family: "Turrent road", Arial, Helvetica, sans-serif;
-  padding: 10px;
+  padding: 0px;
   width: 100vw;
   display: grid;
   grid-template-columns: 4fr 6fr;
@@ -42,7 +42,7 @@ body {
   }
 
   &__list {
-    padding: 10px;
+    padding: 0;
   }
   &__listheader {
     text-align: center;
@@ -59,7 +59,6 @@ body {
 }
 
 .formulary {
-  display: flex;
   &__label {
     font-weight: bold;
     font-size: 20px;
@@ -80,8 +79,12 @@ body {
       background-color: hsla(260, 72%, 82%, 1);
       color: white;
     }
-
     border-radius: 20px;
     text-shadow: none;
+  }
+  &__resetBtn {
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
   }
 }
