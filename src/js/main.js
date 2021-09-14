@@ -70,7 +70,7 @@ function getShowHtml(show) {
   let liClass = "card list__item";
   const favoriteShowFound = favShow.findIndex((favorite) => {
     return favorite.id === id;
-  });
+  }); //El  show que estamos dibujando es favorito?
 
   if (favoriteShowFound !== -1) {
     liClass += " selectedCard";

@@ -1,18 +1,24 @@
 "use strict";
 
-//Variables y constantes
+/*Elementos que me he traido del DOM: 
+  - Botón 
+  - Lista donde se pintan todos los shows
+  - Input que recoge el valor escrito por la usuaria 
+  - Lista donde se pintan las películas favoritas
+
+*/
 const button = document.querySelector(".js-button");
 const showList = document.querySelector(".js-list");
 const userValue = document.querySelector(".js-input");
 const favList = document.querySelector(".js-favlist");
-
+//Arrays creados vacíos para ir rellenando con los shows
 let shows = []; //array para resultados
 let favShow = []; //array para los favoritos
 
-//Fetch
+//Fetch. Aquí hago petición al servidor para que me dé todos los shows
 function queryResults() {
   let userSearch = userValue.value;
-  fetch(`//api.tvmaze.com/search/shows?q=${userSearch}`)
+  fetch(`//api.tvmaze.com/search/shows?q=${userSearch}`) // petición a la api y en el q= pongo user search que es el value obtenido del input escrito por la usuaria
     .then((response) => response.json())
     .then((results) => {
       shows = [];
@@ -30,6 +36,7 @@ function handleButton(ev) {
   queryResults();
 }
 
+// para cargar los favoritos que estan en el localStorage
 function loadFavoriteShows() {
   const savedFavShow = localStorage.getItem("favShow");
   if (savedFavShow) {
@@ -38,16 +45,16 @@ function loadFavoriteShows() {
   }
 }
 
-//Función para pintar cada result obtenido.
+//Función para pintar cada result obtenido y para pintar los favoritos pasandolos como parámetros.
 function paintCards(showArray, showListHtml) {
   let html = "";
   for (let show of showArray) {
     html += getShowHtml(show);
   }
   showListHtml.innerHTML = html;
-  addHandlerForCardsInList(showArray, showListHtml);
+  addHandlerForCardsInList(showArray, showListHtml); //añade clickhandler
 }
-// Devuelve un html que me permite dibujar un resultado
+// Devuelve un html que me permite dibujar show el un <li>
 function getShowHtml(show) {
   const name = show.name;
   const image = show.image;
@@ -63,7 +70,7 @@ function getShowHtml(show) {
   let liClass = "card list__item";
   const favoriteShowFound = favShow.findIndex((favorite) => {
     return favorite.id === id;
-  });
+  }); //El  show que estamos dibujando es favorito?
 
   if (favoriteShowFound !== -1) {
     liClass += " selectedCard";
@@ -73,7 +80,8 @@ function getShowHtml(show) {
      <img  src="${imageUrl}">
      </li>`;
 }
-// Añade un evento a cada carta dibujada en la pantalla
+// Añade un evento para escuchar cada carta dibujada en la pantalla
+
 function addHandlerForCardsInList(showArray, showListHtml) {
   const allShowsHtml = showListHtml.querySelectorAll(".card");
   for (let card of allShowsHtml) {
@@ -82,11 +90,13 @@ function addHandlerForCardsInList(showArray, showListHtml) {
     });
   }
 }
-
-//Función del evento click para cada uno de los shows.
+//ev: porque necesito llegar al currentTarget para saber cual es el li clickcado.
+// ShowArray: Por qué he pasado este argumento? Porque cuando quería quitar de favoritos no estaba en el shows y tenía que mirar en favshow.
+//Función del evento click para cada uno de los shows clickados.
 function handleClickedShow(ev, showArray) {
   const clickedShowLi = ev.currentTarget;
   const clickedShowId = parseInt(clickedShowLi.id);
+  // Antes: const clickedShowObject = shows.find((show) => {
   const clickedShowObject = showArray.find((show) => {
     return show.id === clickedShowId; //true or false
   });
