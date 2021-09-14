@@ -75,6 +75,7 @@ function getShowHtml(show) {
   if (favoriteShowFound !== -1) {
     liClass += " selectedCard";
   }
+
   return `<li class="${liClass}" id="${id}">
     <h4 class="list__title">${name}</h4>
      <img  src="${imageUrl}">

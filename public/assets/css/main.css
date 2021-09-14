@@ -33,12 +33,26 @@ body {
   padding: 10px;
   width: 100vw;
   display: grid;
-  grid-template-columns: 1fr 2fr; }
+  grid-template-columns: 4fr 6fr; }
   .page__subtitle {
     margin-bottom: 10px; }
   .page__favList {
+    width: 100%;
     padding: 10px;
     border-right: black 1px solid; }
+    .page__favList li.card {
+      padding: 10px 0;
+      width: 100%;
+      margin-bottom: 10px;
+      background-color: gray;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center; }
+      .page__favList li.card img {
+        max-height: 150px; }
+    .page__favList li.card::after {
+      content: "x"; }
   .page__list {
     padding: 10px; }
   .page__listheader {
@@ -73,23 +87,25 @@ body {
       background-color: #c6b0f2;
       color: white; }
 
-.list {
+.list-result {
+  padding: 10px 0;
+  margin-bottom: 10px;
   list-style: none;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
   font-family: Arial, Helvetica, sans-serif; }
-  .list__item {
+  .list-result__item {
     display: flex;
     flex-direction: column;
     justify-content: center;
     flex-grow: 1;
-    max-width: 250px;
+    max-width: 150px;
     padding: 10px;
     margin: 10px;
     background-color: white; }
-  .list__title {
+  .list-result__title {
     margin-bottom: 5px;
     font-family: "Turret Road", Arial, Helvetica, sans-serif; }
 

@@ -1,4 +1,6 @@
-.list {
+.list-result {
+  padding: 10px 0;
+  margin-bottom: 10px;
   list-style: none;
   display: flex;
   flex-wrap: wrap;
@@ -11,7 +13,7 @@
     flex-direction: column;
     justify-content: center;
     flex-grow: 1;
-    max-width: 250px;
+    max-width: 150px;
     padding: 10px;
     margin: 10px;
     background-color: white;
@@ -21,7 +23,6 @@
     font-family: "Turret Road", Arial, Helvetica, sans-serif;
   }
 }
-
 .selectedCard {
   background-color: black;
   color: white;
