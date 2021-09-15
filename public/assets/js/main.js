@@ -19,7 +19,7 @@ let favShow = []; //array para los favoritos
 //Fetch. Aquí hago petición al servidor para que me dé todos los shows
 function queryResults() {
   let userSearch = userValue.value;
-  fetch(`//api.tvmaze.com/search/shows?q=${userSearch}`) // petición a la api y en el q= pongo user search que es el value obtenido del input escrito por la usuaria
+  fetch(`//api.tvmaze.com/search/shows?q=${userSearch}`) // petición a la api y detras de q= pongo `${usersearch}`  que es el value obtenido del input escrito por la usuaria
     .then((response) => response.json())
     .then((results) => {
       shows = [];
@@ -39,23 +39,23 @@ function handleButton(ev) {
 
 // para cargar los favoritos que estan en el localStorage
 function loadFavoriteShows() {
-  const savedFavShow = localStorage.getItem("favShow");
+  const savedFavShow = localStorage.getItem("favShow"); //leyendo los favoritos
   if (savedFavShow) {
     favShow = JSON.parse(savedFavShow);
     paintCards(favShow, favList);
   }
 }
 
-//Función para pintar cada result obtenido y para pintar los favoritos pasandolos como parámetros.
+//Función para pintar cada show
 function paintCards(showArray, showListHtml) {
   let html = "";
   for (let show of showArray) {
     html += getShowHtml(show);
   }
   showListHtml.innerHTML = html;
-  addHandlerForCardsInList(showArray, showListHtml); //añade clickhandler
+  addHandlerForCardsInList(showArray, showListHtml); //está escuchando cada card
 }
-// Devuelve un html que me permite dibujar show el un <li>
+// Devuelve un html que me permite dibujar cada show en un <li>
 function getShowHtml(show) {
   const name = show.name;
   const image = show.image;
@@ -71,23 +71,22 @@ function getShowHtml(show) {
   let liClass = "card list__item";
   const favoriteShowFound = favShow.findIndex((favorite) => {
     return favorite.id === id;
-  }); //El  show que estamos dibujando es favorito?
-
+  }); //Es favorito?? Tengo que  encontrar en favShow un show favorito que coincida con el id del show que estoy dibujando
   if (favoriteShowFound !== -1) {
     liClass += " selectedCard";
   }
-
   return `<li class="${liClass}" id="${id}">
     <h4 class="list__title">${name}</h4>
      <img  src="${imageUrl}">
      </li>`;
 }
-// Añade un evento para escuchar cada carta dibujada en la pantalla
 
-function addHandlerForCardsInList(showArray, showListHtml) {
-  const allShowsHtml = showListHtml.querySelectorAll(".card");
+// Añade un evento para escuchar cada carta dibujada en la pantalla
+function addHandlerForCardsInList(showArray, showUltHtml) {
+  const allShowsHtml = showUltHtml.querySelectorAll(".card");
   for (let card of allShowsHtml) {
     card.addEventListener("click", (ev) => {
+      //console.log(ev);
       handleClickedShow(ev, showArray);
     });
   }
@@ -127,6 +126,7 @@ function eraseBtn(ev) {
   ev.preventDefault();
   favShow = [];
   paintCards(favShow, favList);
+  paintCards(shows, showList);
 
   localStorage.removeItem("favShow");
 }
