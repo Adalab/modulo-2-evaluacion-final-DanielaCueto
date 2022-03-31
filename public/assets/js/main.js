@@ -1,5 +1,5 @@
 "use strict";
-
+// generar a cada serie el genero de la serie a tener en cuenta: genero puede no tener genero
 //Variables y constantes
 const button = document.querySelector(".js-button");
 const showList = document.querySelector(".js-list");
@@ -49,9 +49,17 @@ function paintCards(showArray, showListHtml) {
 }
 // Devuelve un html que me permite dibujar un resultado
 function getShowHtml(show) {
+  //console.log(show);
   const name = show.name;
   const image = show.image;
   const id = show.id;
+  const genres = show.genres;
+  let genre = "";
+  for (let item of genres) {
+    genre += item + " ";
+  }
+  //console.log(genre);
+  //console.log(genres);
 
   let imageUrl = "";
   if (image) {
@@ -69,9 +77,10 @@ function getShowHtml(show) {
   }
   return `<li class="${liClass}" id="${id}">
     <h4 class="list__title">${name}</h4>
-     <img  src="${imageUrl}">
+     <img  src="${imageUrl}"> <p>${genre}</p>
      </li>`;
 }
+
 // Añade un evento a cada carta dibujada en la pantalla
 function addHandlerForCardsInList(showArray, showListHtml) {
   const allShowsHtml = showListHtml.querySelectorAll(".card");
@@ -91,7 +100,7 @@ function handleClickedShow(ev, showArray) {
   });
 
   updateFavoriteList(clickedShowObject);
-
+  //console.log(clickedShowObject.name);
   paintCards(favShow, favList);
   paintCards(shows, showList);
 
