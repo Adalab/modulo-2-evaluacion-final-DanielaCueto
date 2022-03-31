@@ -18,14 +18,18 @@ button {
   border: none; }
 
 .page__header {
+  width: 50%;
   grid-column: 1 / span 2;
   display: flex;
-  justify-content: space-evenly;
-  margin-bottom: 100px; }
+  justify-content: flex-start;
+  margin-bottom: 100px;
+  color: #FF4C29;
+  font-size: 2rem;
+  font-family: 'Amatic SC'; }
 
 body {
-  background: #a4eaf9;
-  background: linear-gradient(90deg, #a4eaf9 0%, #c6b0f2 100%); }
+  background: #2C394B;
+  color: #FF4C29; }
 
 .page {
   box-sizing: border-box;
@@ -64,13 +68,13 @@ body {
   .formulary__button {
     width: 100px;
     height: 30px;
-    background-color: black;
+    background-color: #082032;
     color: white;
     margin-bottom: 10px;
     border-radius: 20px;
     text-shadow: none; }
     .formulary__button:hover {
-      background-color: #c6b0f2;
+      background-color: #FF4C29;
       color: white; }
 
 .list {

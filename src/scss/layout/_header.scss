@@ -1,6 +1,13 @@
 .page__header {
+  width: 50%;
   grid-column: 1 / span 2;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   margin-bottom: 100px;
+  color: #FF4C29;
+  font-size: 2rem;
+  font-family: 'Amatic SC';
+  
+
+  
 }

@@ -1,15 +1,11 @@
 body {
-  background: hsla(191, 88%, 81%, 1);
-
-  background: linear-gradient(
-    90deg,
-    hsla(191, 88%, 81%, 1) 0%,
-    hsla(260, 72%, 82%, 1) 100%
-  );
+  background: #2C394B;
+  color:#FF4C29;
 }
 .page {
   box-sizing: border-box;
   font-family: "Turrent road", Arial, Helvetica, sans-serif;
+  
   padding: 10px;
   width: 100vw;
   display: grid;
@@ -55,11 +51,11 @@ body {
   &__button {
     width: 100px;
     height: 30px;
-    background-color: black;
+    background-color: #082032;
     color: white;
     margin-bottom: 10px;
     &:hover {
-      background-color: hsla(260, 72%, 82%, 1);
+      background-color: #FF4C29;
       color: white;
     }
 
