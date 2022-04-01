@@ -34,8 +34,15 @@ function loadFavoriteShows() {
   const savedFavShow = localStorage.getItem("favShow");
   if (savedFavShow) {
     favShow = JSON.parse(savedFavShow);
-    paintCards(favShow, favList);
+    paintFavListCards(favShow);
   }
+}
+
+function paintFavListCards(showArray){
+  paintCards(showArray, favList)
+  if (showArray.length === 0){
+    favList.classList.remove('page__favList--line');
+  } else{favList.classList.add('page__favList--line')}
 }
 
 //Función para pintar cada result obtenido.
@@ -94,7 +101,7 @@ function handleClickedShow(ev, showArray) {
   updateFavoriteList(clickedShowObject);
 
   //console.log(favShow);
-  paintCards(favShow, favList);
+  paintFavListCards(favShow);
   paintCards(shows, showList);
 
   localStorage.setItem("favShow", JSON.stringify(favShow));

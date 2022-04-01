@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   margin: 0;
   padding: 0;
@@ -33,16 +34,20 @@ body {
 
 .page {
   box-sizing: border-box;
-  font-family: "Turrent road", Arial, Helvetica, sans-serif;
+  font-family: 'Amatic SC';
+  font-size: 1.5rem;
   padding: 10px;
   width: 100vw;
   display: grid;
-  grid-template-columns: 1fr 2fr; }
-  .page__subtitle {
-    margin-bottom: 10px; }
+  grid-template-columns: 1fr 2fr;
+  /*&__subtitle {
+    margin-bottom: 10px;
+  }  Comento porque no sé a qué le esta dando estilo*/ }
   .page__favList {
     padding: 10px;
-    border-right: black 1px solid; }
+    /*border-right: black 1px solid; linea que separa la lista de favoritos con resultados de la búsqueda. No queda un estilo bonito*/ }
+    .page__favList--line {
+      border-right: black 1px solid; }
   .page__list {
     padding: 10px; }
   .page__listheader {
@@ -60,7 +65,7 @@ body {
   display: flex; }
   .formulary__label {
     font-weight: bold;
-    font-size: 20px; }
+    font-size: 25px; }
   .formulary__textbox {
     width: 200px;
     height: 20px;
